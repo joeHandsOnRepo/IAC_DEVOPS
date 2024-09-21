@@ -42,3 +42,10 @@ resource "azurerm_key_vault" "Terraform_kv" {
     ]
   }
 }
+resource "azurerm_log_analytics_workspace" "Terraform_ws" {
+  name                = "Terraform_ws"
+  location            = azurerm_resource_group.Terraform_RG.location
+  resource_group_name = azurerm_resource_group.Terraform_RG.name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+}
