@@ -23,4 +23,8 @@ variable "keyvaultname" {
   type    = string
   default = "your-keyvault-name"
 }
+variable "azurerm_log_analytics_workspace_name" {
+  type    = string
+  default = "workspace-name"
+}
 
