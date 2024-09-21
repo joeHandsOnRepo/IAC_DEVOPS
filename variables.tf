@@ -1,6 +1,6 @@
 variable "ResourceGroupName" {
     type = string
-    default = "IAC-VM-FN"
+    default = "Terraform-kv"
     }
   
 variable "subscription_id" {
@@ -17,5 +17,10 @@ variable "client_secret" {
 
 variable "tenant_id" {
   description = "The Tenant ID associated with your Azure Active Directory"
+}
+
+variable "keyvaultname" {
+  type    = string
+  default = "your-keyvault-name"
 }
 
