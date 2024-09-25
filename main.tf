@@ -14,8 +14,8 @@ resource "azurerm_resource_group" "Terraform_RG" {
   location = "East US"
 }
 
-resource "azurerm_key_vault" "Terraform_kv" {
-  name                        = "Terraform_kv"
+resource "azurerm_key_vault" "Terraformkv" {
+  name                        = "Terraformkv"
   location                    = azurerm_resource_group.Terraform_RG.location
   resource_group_name         = azurerm_resource_group.Terraform_RG.name
   enabled_for_disk_encryption = true
@@ -42,15 +42,15 @@ resource "azurerm_key_vault" "Terraform_kv" {
     ]
   }
 }
-resource "azurerm_log_analytics_workspace" "Terraform_ws" {
-  name                = "Terraform_ws"
+resource "azurerm_log_analytics_workspace" "Terraformws" {
+  name                = "Terraformws"
   location            = azurerm_resource_group.Terraform_RG.location
   resource_group_name = azurerm_resource_group.Terraform_RG.name
   sku                 = "PerGB2018"
   retention_in_days   = 30
 }
-resource "azurerm_mssql_server" "terraform_server" {
-  name                         = "terraform_server"
+resource "azurerm_mssql_server" "terraformserver" {
+  name                         = "terraformserver"
   resource_group_name          = azurerm_resource_group.Terraform_RG.name
   location                     = azurerm_resource_group.Terraform_RG.location
   version                      = "12.0"
@@ -58,8 +58,8 @@ resource "azurerm_mssql_server" "terraform_server" {
   administrator_login_password = "Password123!"
 }
 
-resource "azurerm_mssql_database" "terraform_db" {
-  name         = "terraform_db"
+resource "azurerm_mssql_database" "terraformdb" {
+  name         = "terraformdb"
   server_id    = azurerm_mssql_server.terraform_server.id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
