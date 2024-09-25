@@ -60,7 +60,7 @@ resource "azurerm_mssql_server" "terraformserver" {
 
 resource "azurerm_mssql_database" "terraformdb" {
   name         = "terraformdb"
-  server_id    = azurerm_mssql_server.terraform_server.id
+  server_id    = azurerm_mssql_server.terraformserver.id
   collation    = "SQL_Latin1_General_CP1_CI_AS"
   license_type = "LicenseIncluded"
   max_size_gb  = 2
