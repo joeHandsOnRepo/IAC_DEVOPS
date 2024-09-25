@@ -49,13 +49,6 @@ resource "azurerm_log_analytics_workspace" "Terraform_ws" {
   sku                 = "PerGB2018"
   retention_in_days   = 30
 }
-
-
-resource "azurerm_resource_group" "Terraform_RG" {
-  name     = "Terraform_RG"
-  location = "East US"
-}
-
 resource "azurerm_mssql_server" "terraform_server" {
   name                         = "terraform_server"
   resource_group_name          = azurerm_resource_group.Terraform_RG.name
