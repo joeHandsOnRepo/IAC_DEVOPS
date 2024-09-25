@@ -28,3 +28,7 @@ variable "azurerm_log_analytics_workspace_name" {
   default = "workspace-name"
 }
 
+variable "azurerm_mssql_server_name" {
+  type    = string
+  default = "mssql-server-name"
+}

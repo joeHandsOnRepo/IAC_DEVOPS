@@ -49,3 +49,37 @@ resource "azurerm_log_analytics_workspace" "Terraform_ws" {
   sku                 = "PerGB2018"
   retention_in_days   = 30
 }
+
+
+resource "azurerm_resource_group" "Terraform_RG" {
+  name     = "Terraform_RG"
+  location = "East US"
+}
+
+resource "azurerm_mssql_server" "terraform_server" {
+  name                         = "terraform_server"
+  resource_group_name          = azurerm_resource_group.Terraform_RG.name
+  location                     = azurerm_resource_group.Terraform_RG.location
+  version                      = "12.0"
+  administrator_login          = "Student"
+  administrator_login_password = "Password123!"
+}
+
+resource "azurerm_mssql_database" "terraform_db" {
+  name         = "terraform_db"
+  server_id    = azurerm_mssql_server.terraform_server.id
+  collation    = "SQL_Latin1_General_CP1_CI_AS"
+  license_type = "LicenseIncluded"
+  max_size_gb  = 2
+  sku_name     = "S0"
+  enclave_type = "VBS"
+
+  tags = {
+    foo = "bar"
+  }
+
+  # prevent the possibility of accidental data loss
+  lifecycle {
+    prevent_destroy = true
+  }
+}
