@@ -1,0 +1,5 @@
+ResourceGroupName = "MPIT_RG"
+subscription_id = "74ac80cd-3ff0-4d41-8875-03212225cd01"
+client_id       = "76d84d6a-4dc1-4550-94b7-a87036dc6d1b"
+client_secret   = "nih8Q~166FrEP1YaMKHITSBvRZR.Y_wAmkgk.b2m"
+tenant_id       = "bb879734-854a-4923-92aa-ab078fef1542"
